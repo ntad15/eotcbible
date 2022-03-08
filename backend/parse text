@@ -1,0 +1,13 @@
+from bs4 import BeautifulSoup
+# requesting information from a website
+import requests
+file = "C:/Users/nahom/OneDrive%20-%20Virginia%20Tech/Non-school/bibleApp/amharicbible/gen-01.html"
+soup = BeautifulSoup(file, 'lxml')
+chapter = soup.find_all('h1').text
+text = soup.find_all('p').text
+
+for verse in text:
+    with open(f'books','w') as f:
+        f.write(f"{chapter}.txt \n")
+        f.write(f"{verse}.txt \n")
+    print('File saved')
